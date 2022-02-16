@@ -1,0 +1,27 @@
+Grafana Installation:
+====================
+Amazon Linux 
+t2.micro
+port number -- 3000
+
+
+    1  sudo su -
+    2  sudo yum update -y
+    3  sudo nano /etc/yum.repos.d/grafana.repo  ---> Add the lines below
+[grafana]
+name=grafana
+baseurl=https://packages.grafana.com/oss/rpm
+repo_gpgcheck=1
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.grafana.com/gpg.key
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+
+to save use---> ctrl+s and to exit from text editor use--> press ctrl+x.
+       
+    4  sudo yum install grafana
+    5  sudo systemctl daemon-reload
+    6  sudo systemctl start grafana-server
+    7  sudo systemctl status grafana-server
+    8  sudo systemctl enable grafana-server.service
